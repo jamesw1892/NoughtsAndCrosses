@@ -4,6 +4,10 @@ A simulation of the simple game Noughts and Crosses AKA Tic Tac Toe.
 
 It includes the ability for two users to play it on the command line and I aim to add some AI too.
 
+# Usage
+
+Run `gradle -q --console plain run` to run the CLI. The extra options mean Gradle doesn't print everywhere around the user input and standard output. To test run `gradle test`.
+
 # How the board game works
 
 In the standard game, the grid is 3 by 3, but it works with different sized grids.
