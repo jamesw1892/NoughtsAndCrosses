@@ -2,7 +2,7 @@
 
 A simulation of the simple game Noughts and Crosses AKA Tic Tac Toe.
 
-It includes the ability for two users to play it on the command line and I aim to add some AI too.
+It includes the ability for one or two users to play it on the command line and I aim to add some AI too.
 
 # Usage
 
@@ -19,3 +19,10 @@ There are two players, one of which is assigned noughts and the other is assigne
 - `Piece.java`: An enum containing the possible pieces - nought, cross or blank.
 - `Board.java`: An object representing the board, with methods to place a piece in a location and check for the winner, etc.
 - `CLI.java`: The command line interface.
+
+# CLI
+
+Available modes for the command line interface
+
+- Single player random
+- Multiplayer
