@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'jamesw1892.noughtsandcrosses.CLI'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+}
+
+run { // run with `gradle -q --console plain run` for user input
+    standardInput = System.in
+}
