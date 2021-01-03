@@ -1,7 +1,8 @@
 package jamesw1892.noughtsandcrosses;
 
-import java.util.Random;
 import java.util.Scanner;
+
+import jamesw1892.noughtsandcrosses.ai.RandomAI;
 
 public class CLI {
 
@@ -100,7 +101,6 @@ public class CLI {
             System.out.println("Invalid choice, defaulting to crosses");
         }
 
-        Random random = new Random();
         Piece winner = null;
         Piece currentPlayer = Piece.CROSS;
         Board board = new Board(boardSize);
@@ -149,10 +149,9 @@ public class CLI {
             // random player
             } else {
 
-                do {
-                    x = random.nextInt(board.getBoardSize());
-                    y = random.nextInt(board.getBoardSize());
-                } while (board.isOccupied(x, y));
+                int[] pos = RandomAI.getBestMove(board, currentPlayer);
+                x = pos[0];
+                y = pos[1];
             }
 
             // perform the move and switch players
