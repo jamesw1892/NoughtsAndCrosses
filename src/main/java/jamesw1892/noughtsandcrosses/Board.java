@@ -38,6 +38,20 @@ public class Board {
     }
 
     /**
+     * Return a deep copy of this Board
+     */
+    public Board copy() {
+        Board b = new Board(this.boardSize);
+        for (int x = 0; x < this.boardSize; x++) {
+            for (int y = 0; y < this.boardSize; y++) {
+                b.board[y][x] = this.board[y][x];
+            }
+        }
+        b.piecesPlaced = this.piecesPlaced;
+        return b;
+    }
+
+    /**
      * Return piece of winner or blank if draw or null if no winner yet
      */
     private Piece checkForWinner(int x, int y, Piece piece) {
