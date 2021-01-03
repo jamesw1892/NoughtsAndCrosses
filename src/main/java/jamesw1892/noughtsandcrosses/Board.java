@@ -4,7 +4,7 @@ public class Board {
     public static final int DEFAULT_BOARD_SIZE = 3;
     private final int boardSize;
     private Piece[][] board;
-    private int piecesPlaces;
+    private int piecesPlaced;
 
     /**
      * Create an empty board with specified board size
@@ -14,7 +14,7 @@ public class Board {
 
         if (this.boardSize % 2 == 0 || this.boardSize < 1) throw new IllegalArgumentException("Board size must be odd and at least 1");
 
-        this.piecesPlaces = 0;
+        this.piecesPlaced = 0;
         this.board = new Piece[this.boardSize][this.boardSize];
         for (int y = 0; y < this.boardSize; y++) {
             for (int x = 0; x < this.boardSize; x++) {
@@ -93,7 +93,7 @@ public class Board {
 
         // draw if no winner (haven't already returned from
         // this function) and all tiles have been filled
-        if (piecesPlaces == this.boardSize * this.boardSize) {
+        if (piecesPlaced == this.boardSize * this.boardSize) {
             return Piece.BLANK;
         }
 
@@ -123,7 +123,7 @@ public class Board {
         }
 
         this.board[y][x] = piece;
-        this.piecesPlaces++;
+        this.piecesPlaced++;
 
         return this.checkForWinner(x, y, piece);
     }

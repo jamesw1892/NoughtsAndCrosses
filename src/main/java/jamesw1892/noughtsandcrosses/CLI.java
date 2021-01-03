@@ -5,17 +5,6 @@ import java.util.Scanner;
 
 public class CLI {
 
-    /**
-     * Swap crosses for noughts and vice versa, else error
-     */
-    private static Piece switchPlayer(Piece player) {
-        switch (player) {
-            case CROSS:  return Piece.NOUGHT;
-            case NOUGHT: return Piece.CROSS;
-            default: throw new IllegalArgumentException("Player must be NOUGHT or CROSS");
-        }
-    }
-
     private static int getBoardSize(Scanner scanner) {
         System.out.print("Board size, must be odd, default 3: ");
         try {
@@ -27,7 +16,8 @@ public class CLI {
     }
 
     /**
-     * Play the game by asking each the user where to play and printing the board repeatedly until there is a winner
+     * Play the game by asking each the user where to play and
+     * printing the board repeatedly until there is a winner
      */
     private static void multiplayer(Scanner scanner) {
 
@@ -83,7 +73,7 @@ public class CLI {
 
             // perform the move and switch players
             winner = board.place(currentPlayer, x, y);
-            currentPlayer = switchPlayer(currentPlayer);
+            currentPlayer = Piece.switchPlayer(currentPlayer);
         }
 
         // print the final state of the board and the winner
@@ -167,13 +157,15 @@ public class CLI {
 
             // perform the move and switch players
             winner = board.place(currentPlayer, x, y);
-            currentPlayer = switchPlayer(currentPlayer);
+            currentPlayer = Piece.switchPlayer(currentPlayer);
         }
 
         // print the final state of the board and the winner
         System.out.println(board);
         System.out.println("Game finished");
-        if (winner == user) {
+        if (winner == Piece.BLANK) {
+            System.out.println("Draw");
+        } else if (winner == user) {
             System.out.println("You won!");
         } else {
             System.out.println("The computer won");
